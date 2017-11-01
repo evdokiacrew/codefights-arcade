@@ -8,5 +8,16 @@ He may need some additional statues to be able to accomplish that. Help him figu
 */
 
 func makeArrayConsecutive2(statues []int) int {
-
+	min := statues[0]
+	max := statues[0]
+	for i := 1; i < len(statues); i++ {
+		if statues[i] < min {
+			min = statues[i]
+		}
+		if statues[i] > max {
+			max = statues[i]
+		}
+	}
+	fmt.Println(min, max)
+	return max - min - len(statues) + 1
 }
