@@ -9,18 +9,15 @@ Given a ticket number n, determine if it's lucky or not.
 func isLucky(n int) bool {
 	number := strconv.Itoa(n)
 	half := len(number)/2
-	left := 0
-	right := 0
+	left, right := 0, 0
 	for i := 0; i < half; i++ {
-        one := strconv.Atoi(number[i])
-        left += one
+		one, _ := strconv.Atoi(string(number[i]))
+		left += one
 	}
-	for i := half - 1; i < len(number); i++ {
-		right += strconv.Atoi(number[i])
+	for i := half; i < len(number); i++ {
+		two, _ := strconv.Atoi(string(number[i]))
+		right += two
 	}
-    if left == right {
-    	return true
-    } else {
-    	return false
-    }
+	fmt.Println(left, right)
+	return left == right
 }
